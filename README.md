@@ -105,3 +105,15 @@ If you're seeing something like the below, your audio levels are too high. This 
 On the radio, turn down the volume till you see something like the below. It doesn't need to be too loud for Direwolf to pick up on and we can fine tune later on.
 
 ![alt text](https://i.imgur.com/2yPuKUx.png "audacity-all-good")
+
+# Running Direwolf 
+
+To start Direwolf, simply open up a terminal or use the existing one you have open and type in the below.
+
+```
+direwolf
+```
+
+If you have the audio levels correct and you're tuned into the 2M APRS frequency for your country (144.800MHz), you should start to see APRS packets being decoded and displayed in the terminal. 
+
+![alt-text](https://i.imgur.com/W626WKS.png "direwolf-decoded-packets"))
