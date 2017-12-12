@@ -78,7 +78,7 @@ arecord -l
 
 Right now we'll configure Direwolf as read only and can add to the configuration later on to increase functionality. Open up direwolf.conf in your home directory using your favourite text editor.
 
-Change MCALL NOCALL to MYCALL YOUR-CALL-SIGN and add -10 at the end. So for example MM6LOL-10. The "-10" is a SSID used to show you are operating on this device from a static, home station in my case. You can find other SSIDs (http://aprs.org/aprs11/SSIDs.txt)[here].
+Change MCALL NOCALL to MYCALL YOUR-CALL-SIGN and add -10 at the end. So for example MM6LOL-10. The "-10" is a SSID used to show you are operating on this device from a static, home station in my case. You can find other SSIDs [here](http://aprs.org/aprs11/SSIDs.txt).
 
 ```
 MYCALL MM6LOL-10
@@ -96,7 +96,7 @@ Save and close the file. That should be enough to get everything up and running 
 
 Next we'll want to connect the output of your radio to the mic input of your soundcard. Once complete, open up audacity and check that the capture device is set to your USB sound card. The name should be the same as what the output from "aplay -l" showed.
 
-In my case, I switch to a broadcast radio station to get a consistent output from the radio that we can use to confirm that the input isn't peaking or distorting.
+In my case, I switch to a broadcast radio station to get a consistent output from the radio that we can use to confirm that the input isn't peaking or distorting. Hit record. This will begin to show the output audio from the radio.
 
 If you're seeing something like the below, your audio levels are too high. This could be due to the system settings, but we'll tackle this from the source first. 
 
