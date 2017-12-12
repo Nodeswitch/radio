@@ -1,11 +1,11 @@
 # Installation on debian based distros
 
-Install prereqs: libasound2-dev, xastir, git and audacity
+Install prereqs: libasound2-dev, xastir, ax25-tools, ax25-apps, git and audacity
 
 Audacity is being used as a quick and cheerful method to see the audio levels coming from the sound card to make sure it isn't spiking or distorted. Run the below command in a terminal window.
 
 ```
-sudo apt-get install libasound2-dev xastir git audacity
+sudo apt-get install libasound2-dev xastir ax25-tools ax25-apps git audacity
 ```
 
 We're going to pull down the source for Direwolf and compile it on the computer locally. If you're not sure about what you're doing, copying and pasting the below lines into the terminal will be enough to get everything running.
@@ -117,3 +117,18 @@ direwolf
 If you have the audio levels correct and you're tuned into the 2M APRS frequency for your country (144.800MHz), you should start to see APRS packets being decoded and displayed in the terminal. 
 
 ![alt-text](https://i.imgur.com/W626WKS.png "direwolf-decoded-packets"))
+
+If you don't see anything, unplug the audio cable from your radio and confirm that you are hearing APRS packets through the loud speaker. 
+
+If you are heading audio plug back in and adjust the audio levels, waiting some time between each change as you may not be receiving a steady stream of packets depending on your location.
+
+# Tweaking Audio
+
+Next we'll analyse the audio levels that are reported by Direwolf.
+
+If you look at my example above, the first line in each packet shows the audio level received by Direwolf.
+
+```
+MB7USI-1 audio level = 103(44/20) [NONE]
+```
+
