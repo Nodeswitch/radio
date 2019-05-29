@@ -5,12 +5,12 @@ README
 
 # Installation on debian based distros
 
-Install prereqs: libasound2-dev, xastir, ax25-tools, ax25-apps, git and audacity
+Install prereqs: libasound2-dev, xastir, ax25-tools, ax25-apps, git
 
-Audacity is being used as a quick and cheerful method to see the audio levels coming from the sound card to make sure it isn't spiking or distorted. Run the below command in a terminal window.
+Run the below command in a terminal window to install the prereqs:
 
 ```
-sudo apt-get install libasound2-dev xastir ax25-tools ax25-apps git audacity
+sudo apt-get install libasound2-dev xastir ax25-tools ax25-apps git
 ```
 
 We're going to pull down the source for Direwolf and compile it on the computer locally. If you're not sure about what you're doing, copying and pasting the below lines into the terminal will be enough to get everything running.
@@ -26,6 +26,8 @@ sudo make install
 ```
 
 # Direwolf Configuration
+
+## Identifying Audio Devices
 
 Before attaching the USB sound card, run the below command in a terminal window to see what your setup looks like as it is. The below command lists playback devices.
 
@@ -81,6 +83,8 @@ You can also run the below to check the recording device, but this usually match
 arecord -l
 ```
 
+## Setting Your Callsign
+
 Right now we'll configure Direwolf as read only and can add to the configuration later on to increase functionality. Open up direwolf.conf in your home directory using your favourite text editor. If you can't see it in the home directory, it may be in ~/git/direwolf. You can either switch to that directory and edit the file within there or move it to another location. For ease of use, I keep direwolf.com in the root of my home directory.
 
 Change MCALL NOCALL to MYCALL YOUR-CALL-SIGN and add -10 at the end. So for example MM6LOL-10. The "-10" is a SSID used to show you are operating on this device from a static, home station in my case. You can find other SSIDs [here](http://aprs.org/aprs11/SSIDs.txt).
@@ -88,6 +92,8 @@ Change MCALL NOCALL to MYCALL YOUR-CALL-SIGN and add -10 at the end. So for exam
 ```
 MYCALL MM6LOL-10
 ```
+
+## Setting the Audio Device to Use
 
 Remove the # from ADEVICE so that it looks like the below. If the output noted from "aplay -l" was 1 and 0, you can leave the rest as it is. If it differs, change the numbers to match what you noted. Enter the card number first, followed by the device number.
 
@@ -97,19 +103,9 @@ ADEVICE plughw:1,0
 
 Save and close the file. That should be enough to get everything up and running as read only.
 
-# Checking Audio Levels
+## Linking to aprs.fi
 
-Next we'll want to connect the output of your radio to the mic input of your soundcard. Once complete, open up audacity and check that the capture device is set to your USB sound card. The name should be the same as what the output from "aplay -l" showed.
-
-In my case, I switch to a broadcast radio station to get a consistent output from the radio that we can use to confirm that the input isn't peaking or distorting. Hit record. This will begin to show the output audio from the radio.
-
-If you're seeing something like the below, your audio levels are too high. This could be due to the system settings, but we'll tackle this from the source first. 
-
-![alt text](https://i.imgur.com/YoEMWDl.png "audacity-distored")
-
-On the radio, turn down the volume till you see something like the below. It doesn't need to be too loud for Direwolf to pick up on and we can fine tune later on.
-
-![alt text](https://i.imgur.com/2yPuKUx.png "audacity-all-good")
+...
 
 # Running Direwolf 
 
@@ -125,9 +121,9 @@ If you have the audio levels correct and you're tuned into the 2M APRS frequency
 
 If you don't see anything, unplug the audio cable from your radio and confirm that you are hearing APRS packets through the loud speaker. 
 
-If you are heading audio plug back in and adjust the audio levels, waiting some time between each change as you may not be receiving a steady stream of packets depending on your location.
+If you are hearing audio, plug back in and adjust the audio levels (see below), waiting some time between each change as you may not be receiving a steady stream of packets depending on your location.
 
-# Tweaking Audio
+## Tweaking Audio
 
 Next we'll analyse the audio levels that are reported by Direwolf.
 
@@ -143,6 +139,33 @@ I turn the volume down on the radio initially to bring as close to 50 as possibl
 
 From the terminal, type 'alsamixer' and hit return. You'll see a GUI within the terminal showing various audio levels. Out of the box, this will show the devices default audio adapter. If you are using a USB device, you may need to switch to that device specifically by pressing F6 and selecting the USB device.
 
-![alt-text](alsamixer.png "alsamixer-view"))
+![alt-text](alsamixer.png "alsamixer-view")
 
 Once you are controlling the correct device, press F4 to switch to the audio capture settings. You'll see a bar, which can be manipulated by using the up and down arrow keys on your keyboard. Adjust this down slightly, press ESC on the keyboard and head back into Direwolf to see if the levels have dropped. If they haven't dropped enough, repeat the steps above till you're happy.
+
+## Direwolf Done
+
+For the most part, that's you up and running with a receive only Direwolf setup! There are some additional configurations that you can apply, detailed further down, but for more information, check the Direwolf manpage or head to the Github repo and view the documentation there. There's a lot to be learned from it! To add Xastir into the mix, move on.
+
+# Xastir
+
+...
+
+# Direwolf Additional
+
+## Logging
+
+If you want to save Direwolf activity, you can define a directory to save the logs to in the direwolf.conf file in the format below. In my case, I've created a directory called 'dw' in /home/username and then created a 'logs' directory in there. Make sure that the directory you enter for saving logs to exists.
+
+```
+LOGDIR ~/dw/logs
+```
+
+## Disabling Colours
+
+I find the Direwolf font and background colours a bit overwhelming. To disable this, you can add '-t 0' to the command you use to start Direwolf. i.e.
+
+```
+direwolf -t 0
+```
+
