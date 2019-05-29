@@ -1,3 +1,8 @@
+README
+======
+
+
+
 # Installation on debian based distros
 
 Install prereqs: libasound2-dev, xastir, ax25-tools, ax25-apps, git and audacity
@@ -22,7 +27,7 @@ sudo make install
 
 # Direwolf Configuration
 
-Before attaching the USB sound card, run the below command to see what your setup looks like as it is. The below command lists playback devices.
+Before attaching the USB sound card, run the below command in a terminal window to see what your setup looks like as it is. The below command lists playback devices.
 
 ```
 aplay -l
@@ -76,7 +81,7 @@ You can also run the below to check the recording device, but this usually match
 arecord -l
 ```
 
-Right now we'll configure Direwolf as read only and can add to the configuration later on to increase functionality. Open up direwolf.conf in your home directory using your favourite text editor.
+Right now we'll configure Direwolf as read only and can add to the configuration later on to increase functionality. Open up direwolf.conf in your home directory using your favourite text editor. If you can't see it in the home directory, it may be in ~/git/direwolf. You can either switch to that directory and edit the file within there or move it to another location. For ease of use, I keep direwolf.com in the root of my home directory.
 
 Change MCALL NOCALL to MYCALL YOUR-CALL-SIGN and add -10 at the end. So for example MM6LOL-10. The "-10" is a SSID used to show you are operating on this device from a static, home station in my case. You can find other SSIDs [here](http://aprs.org/aprs11/SSIDs.txt).
 
@@ -108,7 +113,7 @@ On the radio, turn down the volume till you see something like the below. It doe
 
 # Running Direwolf 
 
-To start Direwolf, simply open up a terminal or use the existing one you have open and type in the below.
+To start Direwolf, simply open up a terminal or use the existing one you have open and type in the below. Make sure you're operating from the directory direwolf.conf is in. Running direwolf without any additional switches causes the application to look for a config file in the directory you're currently operating from.
 
 ```
 direwolf
@@ -132,3 +137,12 @@ If you look at my example above, the first line in each packet shows the audio l
 MB7USI-1 audio level = 103(44/20) [NONE]
 ```
 
+Direwolf recommends that the audio level for most packets should be around 50, where 103 is currently shown above. You'll find that in most cases, this isn't a problem till you get a prompt from direwolf under the audio level advising that you should reduce the audio levels.
+
+I turn the volume down on the radio initially to bring as close to 50 as possible. If after playing about with the radio you still find levels aren't as low as you want, we can start playing about with alsamixer.
+
+From the terminal, type 'alsamixer' and hit return. You'll see a GUI within the terminal showing various audio levels. Out of the box, this will show the devices default audio adapter. If you are using a USB device, you may need to switch to that device specifically by pressing F6 and selecting the USB device.
+
+![alt-text](alsamixer.png "alsamixer-view"))
+
+Once you are controlling the correct device, press F4 to switch to the audio capture settings. You'll see a bar, which can be manipulated by using the up and down arrow keys on your keyboard. Adjust this down slightly, press ESC on the keyboard and head back into Direwolf to see if the levels have dropped. If they haven't dropped enough, repeat the steps above till you're happy.
