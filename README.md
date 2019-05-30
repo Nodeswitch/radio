@@ -149,6 +149,41 @@ For the most part, that's you up and running with a receive only Direwolf setup!
 
 # Xastir
 
+On starting Direwolf, you'll see a line right at the beginning like the below. By default the port will be 8000. If you've altered the configuration file, you may see something different.
+
+```
+Ready to accept AGW client application 0 on port 8000 ...                       ```
+
+With that information, open Xastir by running the below in a terminal window.
+
+```
+sudo xastir &
+```
+
+When you first launch, you'll be asked to enter your callsign and SSID. If you're planning to use receive only, you can skip this, but in case you want to transmit in the future, it's recommended that you enter the detail there.
+
+The location co-ordinates can be entered later.
+
+On the application menu bar, select 'Interface' then 'Interface Control'
+
+Select 'Add' and when the new window appears, select 'Networked AGWPE' and press 'Add'
+
+![alt-text](img/xastir-choose-type.png "xastir - choose interface type")
+
+By default, everything should work from here, but I change a couple of additional options:
+
+- Deselect 'Allow Transmitting'
+- Select 'Reconnect on NET faulure'
+
+![alt-text](img/xastir-awgpe.png "xastir-awgpe-configuration")
+
+Press 'OK'
+
+![alt-text](img/xastir-interface-control.png "xastir - interface control view")
+
+
+```
+Connected to AGW client application 0...
 ...
 
 # Direwolf Additional
