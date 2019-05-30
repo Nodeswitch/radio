@@ -87,7 +87,7 @@ arecord -l
 
 Right now we'll configure Direwolf as read only and can add to the configuration later on to increase functionality. Open up direwolf.conf in your home directory using your favourite text editor. If you can't see it in the home directory, it may be in ~/git/direwolf. You can either switch to that directory and edit the file within there or move it to another location. For ease of use, I keep direwolf.com in the root of my home directory.
 
-Change MCALL NOCALL to MYCALL YOUR-CALL-SIGN and add -10 at the end. So for example MM6LOL-10. The "-10" is a SSID used to show you are operating on this device from a static, home station in my case. You can find other SSIDs [here](http://aprs.org/aprs11/SSIDs.txt).
+Change **MCALL NOCALL** to **MYCALL YOUR-CALL-SIGN8** and add '-10' at the end. So for example **MM6LOL-10**. The '-10' is a SSID used to show you are operating on this device from a static, home station in my case. You can find other SSIDs [here](http://aprs.org/aprs11/SSIDs.txt).
 
 ```
 MYCALL MM6LOL-10
