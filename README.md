@@ -161,7 +161,9 @@ With that information, open Xastir by running the below in a terminal window.
 sudo xastir &
 ```
 
-When you first launch, you'll be asked to enter your callsign and SSID. If you're planning to use receive only, you can skip this, but in case you want to transmit in the future, it's recommended that you enter the detail there.
+When you first launch, you'll be asked to enter your callsign and SSID. If you're planning to use receive only, you can skip this, but in case you want to transmit in the future, it's recommended that you enter the details there.
+
+![alt-text](img/xastir-configure-station.png "xastir - configure station details"))
 
 The location co-ordinates can be entered later.
 
@@ -180,12 +182,19 @@ By default, everything should work from here, but I change a couple of additiona
 
 Press 'OK'
 
+You'll see that the Interface Control window has updated with the settings you've configured and the status should be set to up. If not, select 'Start' or 'Start All' if you only have one item configured. 
+
 ![alt-text](img/xastir-interface-control.png "xastir - interface control view")
 
+If successful, switch back to the Direwolf terminal window and you'll see the below line confirming the connection.
 
 ```
 Connected to AGW client application 0...
 ```
+
+If Direwolf isn't running, run it again from the terminal, head back to Xastir, select "Start' within the Interface Control settings and check everything again.
+
+You should now see activity show up within Xastir. With this setup, you have the best of both worlds. Direwolf is logging the data and sending to aprs.fi and Xastir is connecting to Direwolf and displaying the data it receives.
 
 # Direwolf Additional
 
