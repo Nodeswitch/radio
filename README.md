@@ -185,7 +185,7 @@ Press 'OK'
 
 ```
 Connected to AGW client application 0...
-...
+```
 
 # Direwolf Additional
 
