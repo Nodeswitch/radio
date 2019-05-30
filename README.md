@@ -152,7 +152,8 @@ For the most part, that's you up and running with a receive only Direwolf setup!
 On starting Direwolf, you'll see a line right at the beginning like the below. By default the port will be 8000. If you've altered the configuration file, you may see something different.
 
 ```
-Ready to accept AGW client application 0 on port 8000 ...                       ```
+Ready to accept AGW client application 0 on port 8000 ...                       
+```
 
 With that information, open Xastir by running the below in a terminal window.
 
