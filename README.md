@@ -128,7 +128,7 @@ I turn the volume down on the radio initially to bring as close to 50 as possibl
 
 From the terminal, type `alsamixer` and hit return. You'll see a GUI within the terminal showing various audio levels. Out of the box, this will show the devices default audio adapter. If you are using a USB device, you may need to switch to that device specifically by pressing F6 and selecting the USB device.
 
-![alt-text](alsamixer.png "alsamixer-view")
+![alt-text](img/alsamixer.png "alsamixer-view")
 
 Once you are controlling the correct device, press F4 to switch to the audio capture settings. You'll see a bar, which can be manipulated by using the up and down arrow keys on your keyboard. Adjust this down slightly, press ESC on the keyboard and head back into Direwolf to see if the levels have dropped. If they haven't dropped enough, repeat the steps above till you're happy.
 
