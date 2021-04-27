@@ -310,6 +310,13 @@ Now to apply the PPM value to the `rtl_fm` command, seen below as `-p 19 -`.
 Again, if you're not having issues picking up on APRS traffic, there's no need
 for this extra step. 
 
+I've added in a couple of extra parameters that I've found to be useful. Logging [timestamps](https://github.com/wb2osz/direwolf/issues/221) and gain. When launching, the command now looks like
+
+```
+rtl_fm -f 144.80M -g 48.0 - | direwolf -c sdr.conf -r 24000 -D 1 -t 0 -T %H:%M:%S -
+```
+Where `-g 48.0` is the gain applied (still playing around with the actual number) and `-T %H:%M:%S` is the timestamp applied to each of the log entries. Without this, it's hard to tell exactly when you decoded a packet and compare with other sources. 
+
 Direwolf Summary
 -----------------
 
