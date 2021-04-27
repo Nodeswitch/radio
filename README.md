@@ -206,6 +206,12 @@ logs to in the direwolf.conf file in the format below. In my case, I've
 created `/home/user/logs/dw`. Make sure that the directory you enter for
 saving logs to exists.
 
+**Note** that if you are running Raspberry Pi OS off of a SD card, logging
+reduce the life of the card. If you're in a relatively quiet area, this wont
+be a problem, but if you are, it would be worth looking into booting off of
+an external drive or exporting logs to a logging server. I may expand on
+these options in the future. 
+
 From the CLI
 
 	$ mkdir -p ~/logs/dw
@@ -260,6 +266,8 @@ pick up are passed onto the APRS servers for viewing online.
 I've added this to the bottom of the file -- if you plan on doing this, you'll need to update your coordinates. 
 
 	PBEACON sendto=IG delay=0:30 every=60:00 symbol="igate" overlay=R lat=55^53.05N long=004^17.22W
+	
+Additionally, you can add in the log parameters mentioned further up. 
 
 We're now ready to go for a test run using the SDR.
 
