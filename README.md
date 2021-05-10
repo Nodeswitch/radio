@@ -22,7 +22,7 @@ Setting up for receiving on the radio
 If you're planning on using an SDR instead, in addition you'll need the
 `rtl-sdr package`.
 
-	$ sudo apt install rtl-sdr
+	$ sudo apt install rtl-sdr direwolf
 
 We're going to pull down the source for Direwolf and compile it on the
 computer locally. If you're not sure about what you're doing, copying and
@@ -210,7 +210,8 @@ saving logs to exists.
 reduce the life of the card. If you're in a relatively quiet area, this wont
 be a problem, but if you are, it would be worth looking into booting off of
 an external drive or exporting logs to a logging server. I may expand on
-these options in the future. 
+these options in the future. For now, I'm keeping the logs in `~/logs/dw`,
+but it would make sense to have in `/var/logs/...`.
 
 From the CLI
 
@@ -218,7 +219,7 @@ From the CLI
 
 Then edit direwolf.conf to add
 
-	LOGDIR ~/dw/logs
+	LOGDIR ~/logs/dw
 
 Save the file and restart direwolf for the changes to apply.
 
@@ -395,5 +396,4 @@ Sources
 ------------
 
 https://ww8tf.club/building-an-aprs-igate/  
-
 https://tonyblews.co.uk/linux-sdr-aprs-igate-setup/  
