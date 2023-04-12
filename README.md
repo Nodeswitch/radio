@@ -247,6 +247,17 @@ Plug in the SDR and check that it's recoginised by the OS.
 
 I'm using a NESDR SMArt device, which shows above as `BUS 001 DEVICE 006: ... RTL2838 DVB-T`. Good!
 
+If you don't see anything, you may need to blacklist modules tied to the SDR. You can do this by creating `/etc/modprobe.d/blacklist-rtl2832.conf` and populating with the following:
+
+```
+blacklist rtl2832
+blacklist dvb_usb_rtl28xxu
+blacklist rtl2832_sdr
+blacklist rtl8xxxu
+```
+
+Reboot after doing this and check `lsusb` again.
+
 In place of `direwolf.conf`, there's a dedicated SDR configuration file called
 `sdr.conf`, where we will be applying our changes to.
 
